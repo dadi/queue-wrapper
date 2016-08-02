@@ -46,7 +46,7 @@ var queue = Queue({
 })
 ```
 
-The options above will ensure that the queue will begin processing messages starting with 'foo' and 'bar:baz' only between 20:00 and 02:00 every day.
+The options above will ensure that the queue will only begin processing messages starting with 'foo' and 'bar:baz' between 20:00 and 02:00 every day.
 
 ## Contributors
 
