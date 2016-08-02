@@ -16,7 +16,7 @@ This library provides a simple wrapper for connecting and sending messages to th
 
 2. Add the library and configure the options:
 
-   ```
+   ```javascript
    var Queue = require('@dadi/queue-wrapper')
    var queue = Queue({
      host: '127.0.0.1',
@@ -27,7 +27,7 @@ This library provides a simple wrapper for connecting and sending messages to th
 
 3. Send a message:
 
-   ```
+   ```javascript
    queue.send('hello-world', function (err, resp) {
      if (err) console.log('oh no')
    })
@@ -35,7 +35,7 @@ This library provides a simple wrapper for connecting and sending messages to th
 
 ### Deferring messages
 
-```
+```javascript
 var queue = Queue({
   ...
   deferred: {
