@@ -1,6 +1,6 @@
 # DADI Queue Wrapper
 
-A high-level library for interacting with DADI Queue
+A high-level library for interacting with [DADI Queue](https://github.com/dadi/queue)
 
 ## Overview
 
