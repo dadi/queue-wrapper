@@ -1,6 +1,6 @@
 {
   "name": "@dadi/queue-wrapper",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A high-level library for interacting with DADI Queue.",
   "main": "index.js",
   "dependencies": {
@@ -17,16 +17,17 @@
     "snazzy": "^5.0.0",
     "standard": "^8.6.0",
     "supertest": "^2.0.1",
-    "semantic-release": "^6.3.2"
+    "semantic-release": "^7.0.2"
   },
   "scripts": {
     "test": "snazzy index.js && ./node_modules/.bin/istanbul cover --report cobertura --report text --report html --report lcov ./node_modules/mocha/bin/_mocha",
     "posttest": "./scripts/coverage.js",
-    "start": "node ./main.js --node-env=development"
+    "start": "node ./main.js --node-env=development",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dadi/queue-wrapper.git"
+    "url": "https://github.com/dadi/queue-wrapper.git"
   },
   "author": "Robert Stanford <rs@dadi.co>",
   "license": "MIT"
