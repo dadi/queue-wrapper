@@ -36,14 +36,13 @@ let queueWrapper
 util.inherits(FakeRsmq, EventEmitter)
 
 describe('QueueWrapper', function (done) {
-  beforeEach(function (done) {
+  beforeEach(function(done) {
     fakeRsmq = new FakeRsmq()
     sinon.stub(QueueWrapper.prototype, 'initialiseQueue').returns(fakeRsmq)
-
     done()
   })
 
-  afterEach(function (done) {
+  afterEach(function(done) {
     QueueWrapper.prototype.initialiseQueue.restore()
     done()
   })

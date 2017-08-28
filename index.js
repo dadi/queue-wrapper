@@ -24,8 +24,6 @@ let QueueWrapper = function (options) {
   this.rsmq.on('disconnect', () => {
     this.connected = false
   })
-
-  return this
 }
 
 // instantiate message queue
@@ -45,6 +43,8 @@ QueueWrapper.prototype.send = function (message, done) {
       delay: this.getDelay(message)
     }
 
+    console.log(options)
+
     this.rsmq.sendMessage(options, done)
   }
 
@@ -57,6 +57,8 @@ QueueWrapper.prototype.send = function (message, done) {
 
 // do request, fail or wait
 QueueWrapper.prototype.request = function (req, err) {
+  let rsmq = this.rsmq
+
   if (this.connected === true) {
     return req()
   }
@@ -76,8 +78,8 @@ QueueWrapper.prototype.request = function (req, err) {
   }
 
   function removeListeners () {
-    this.rsmq.removeListener('connect', connect)
-    this.rsmq.removeListener('disconnect', disconnect)
+    rsmq.removeListener('connect', connect)
+    rsmq.removeListener('disconnect', disconnect)
   }
 
   this.rsmq.on('connect', connect)
@@ -119,7 +121,7 @@ QueueWrapper.prototype.untilStart = function () {
   }
 }
 
-// parse time string from config file
+// parse time string from configured options
 QueueWrapper.prototype.parseTime = function (string) {
   const time = new Date()
   const timeParts = string.split(':')
