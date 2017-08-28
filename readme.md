@@ -2,6 +2,12 @@
 
 A high-level library for interacting with [DADI Queue](https://github.com/dadi/queue)
 
+[![npm (scoped)](https://img.shields.io/npm/v/@dadi/queue-wrapper.svg?maxAge=10800&style=flat-square)](https://www.npmjs.com/package/@dadi/queue-wrapper)
+[![coverage](https://img.shields.io/badge/coverage-68%25-yellow.svg?style=flat?style=flat-square)](https://github.com/dadi/queue-wrapper)
+[![Build Status](https://travis-ci.org/dadi/queue-wrapper.svg?branch=master)](https://travis-ci.org/dadi/queue-wrapper)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+
 ## Overview
 
 DADI Queue is a lightweight, high-performance task queue.
@@ -47,38 +53,3 @@ var queue = Queue({
 ```
 
 The options above will ensure that the queue will only begin processing messages starting with 'foo' and 'bar:baz' between 20:00 and 02:00 every day.
-
-## License
-
-DADI is a data centric development and delivery stack, built specifically in support of the principles of API first and COPE.
-
-Copyright notice
-(C) 2016 DADI+ Limited <support@dadi.tech>
-All rights reserved
-
-This product is part of DADI.<br />
-DADI is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version ("the AGPL").
-
-**If you wish to use DADI outside the scope of the AGPL, please
-contact us at info@dadi.co for details of alternative licence
-arrangements.**
-
-**This product may be distributed alongside other components
-available under different licences (which may not be AGPL). See
-those components themselves, or the documentation accompanying
-them, to determine what licences are applicable.**
-
-DADI is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-The GNU Affero General Public License (AGPL) is available at
-http://www.gnu.org/licenses/agpl-3.0.en.html.<br />
-A copy can be found in the file license.md distributed with
-these files.
-
-This copyright notice MUST APPEAR in all copies of the product!
