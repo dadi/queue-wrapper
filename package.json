@@ -6,13 +6,28 @@
   "dependencies": {
     "rsmq": "^0.7.1"
   },
+  "devDependencies": {
+    "fakeredis": "^1.0.3",
+    "istanbul": "^0.4.0",
+    "istanbul-cobertura-badger": "^1.2.1",
+    "mocha": "^3.2.0",
+    "redis": "^2.6.4",
+    "should": "^11.1.2",
+    "sinon": "2.x.x",
+    "snazzy": "^5.0.0",
+    "standard": "^8.6.0",
+    "supertest": "^2.0.1",
+    "semantic-release": "^6.3.2"
+  },
   "scripts": {
-    "test": "node_modules/.bin/mocha",
+    "test": "snazzy index.js && ./node_modules/.bin/istanbul cover --report cobertura --report text --report html --report lcov ./node_modules/mocha/bin/_mocha",
+    "posttest": "./scripts/coverage.js",
     "start": "node ./main.js --node-env=development"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/dadi/queue-wrapper.git"
   },
-  "author": "Robert Stanford <rs@dadi.co>"
+  "author": "Robert Stanford <rs@dadi.co>",
+  "license": "MIT"
 }
