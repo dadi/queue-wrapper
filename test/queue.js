@@ -100,6 +100,44 @@ describe('QueueWrapper', function (done) {
       })
     })
 
+    it ('should send a message when a string is passed', function (done) {
+      queueWrapper = new QueueWrapper({
+        name: 'myqueue'
+      })
+
+      fakeRsmq.emit('connect', () => {
+
+      })
+
+      // send is faked above, so the response should contain the options
+      // created by the queueWrapper to be sent as the message to the real queue
+      queueWrapper.send('worker|message', (response) => {
+        should.exist(response.qname)
+        should.exist(response.message)
+        response.message.should.equal('worker|message')
+        done()
+      })
+    })
+
+    it ('should send a message when an address and object are passed', function (done) {
+      queueWrapper = new QueueWrapper({
+        name: 'myqueue'
+      })
+
+      fakeRsmq.emit('connect', () => {
+
+      })
+
+      // send is faked above, so the response should contain the options
+      // created by the queueWrapper to be sent as the message to the real queue
+      queueWrapper.send('worker', { 'test': true }, (response) => {
+        should.exist(response.qname)
+        should.exist(response.message)
+        response.message.substr(0, 7).should.equal('worker|')
+        done()
+      })
+    })
+
     it ('should return error when not connected', function (done) {
       queueWrapper = new QueueWrapper({
         name: 'myqueue'
