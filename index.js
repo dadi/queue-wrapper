@@ -53,8 +53,6 @@ QueueWrapper.prototype.send = function (address, data, done) {
       delay: this.getDelay(message)
     }
 
-    console.log(options)
-
     this.rsmq.sendMessage(options, done)
   }
 
