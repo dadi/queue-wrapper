@@ -46,7 +46,7 @@ QueueWrapper.prototype.send = function (address, data, done) {
   } else {
     const serializedData = typeof data === 'object' ? JSON.stringify(data) : data
     const encodedData = new Buffer(serializedData).toString('base64')
-    options.message = `${address}|[[${encodedData}]]`
+    options.message = `${address}:[[${encodedData}]]`
   }
 
   const send = () => {
