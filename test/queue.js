@@ -119,7 +119,7 @@ describe('QueueWrapper', function (done) {
       })
     })
 
-    it ('should send a message when an address and object are passed', function (done) {
+    it ('should start a message with address when an address and object are passed', function (done) {
       queueWrapper = new QueueWrapper({
         name: 'myqueue'
       })
@@ -128,12 +128,30 @@ describe('QueueWrapper', function (done) {
 
       })
 
-      // send is faked above, so the response should contain the options
-      // created by the queueWrapper to be sent as the message to the real queue
       queueWrapper.send('worker', { 'test': true }, (response) => {
         should.exist(response.qname)
         should.exist(response.message)
         response.message.substr(0, 7).should.equal('worker|')
+        done()
+      })
+    })
+
+    it ('should encapsulate the data with [[ ]] when an address and object are passed', function (done) {
+      queueWrapper = new QueueWrapper({
+        name: 'myqueue'
+      })
+
+      fakeRsmq.emit('connect', () => {
+
+      })
+
+      queueWrapper.send('worker', { 'test': true }, (response) => {
+        should.exist(response.qname)
+        should.exist(response.message)
+
+        const messageData = response.message.substr(7)
+        messageData.startsWith('[[').should.equal(true)
+        messageData.endsWith(']]').should.equal(true)
         done()
       })
     })
