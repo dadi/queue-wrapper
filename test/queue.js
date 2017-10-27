@@ -111,10 +111,10 @@ describe('QueueWrapper', function (done) {
 
       // send is faked above, so the response should contain the options
       // created by the queueWrapper to be sent as the message to the real queue
-      queueWrapper.send('worker|message', (response) => {
+      queueWrapper.send('worker:message', (response) => {
         should.exist(response.qname)
         should.exist(response.message)
-        response.message.should.equal('worker|message')
+        response.message.should.equal('worker:message')
         done()
       })
     })
@@ -131,7 +131,7 @@ describe('QueueWrapper', function (done) {
       queueWrapper.send('worker', { 'test': true }, (response) => {
         should.exist(response.qname)
         should.exist(response.message)
-        response.message.substr(0, 7).should.equal('worker|')
+        response.message.substr(0, 7).should.equal('worker:')
         done()
       })
     })
