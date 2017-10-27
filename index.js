@@ -36,23 +36,21 @@ QueueWrapper.prototype.initialiseQueue = function () {
 
 // public send function
 QueueWrapper.prototype.send = function (address, data, done) {
-  let message = ''
+  const options = {
+    qname: this.options.name
+  }
+
   if (typeof data === 'function') {
     done = data
-    message = address
+    options.message = address
   } else {
     const serializedData = typeof data === 'object' ? JSON.stringify(data) : data
     const encodedData = new Buffer(serializedData).toString('base64')
-    message = address + '|' + encodedData
+    options.message = `${address}|[[${encodedData}]]`
   }
 
   const send = () => {
-    let options = {
-      qname: this.options.name,
-      message: message,
-      delay: this.getDelay(message)
-    }
-
+    options.delay = this.getDelay(options.message)
     this.rsmq.sendMessage(options, done)
   }
 
