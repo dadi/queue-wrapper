@@ -35,7 +35,17 @@ QueueWrapper.prototype.initialiseQueue = function () {
 }
 
 // public send function
-QueueWrapper.prototype.send = function (message, done) {
+QueueWrapper.prototype.send = function (address, data, done) {
+  let message = ''
+  if (typeof data === 'function') {
+    done = data
+    message = address
+  } else {
+    const serializedData = typeof data === 'object' ? JSON.stringify(data) : data
+    const encodedData = new Buffer(serializedData).toString('base64')
+    message = address + '|' + encodedData
+  }
+
   const send = () => {
     let options = {
       qname: this.options.name,
