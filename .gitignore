@@ -2,3 +2,4 @@
 coverage/*
 scripts/*.svg
 node_modules/
+.nyc_output/

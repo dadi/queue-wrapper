@@ -3,10 +3,9 @@
 A high-level library for interacting with [DADI Queue](https://github.com/dadi/queue)
 
 [![npm (scoped)](https://img.shields.io/npm/v/@dadi/queue-wrapper.svg?maxAge=10800&style=flat-square)](https://www.npmjs.com/package/@dadi/queue-wrapper)
-[![coverage](https://img.shields.io/badge/coverage-68%25-yellow.svg?style=flat?style=flat-square)](https://github.com/dadi/queue-wrapper)
+[![Coverage Status](https://coveralls.io/repos/github/dadi/queue-wrapper/badge.svg?branch=master)](https://coveralls.io/github/dadi/queue-wrapper?branch=master)
 [![Build Status](https://travis-ci.org/dadi/queue-wrapper.svg?branch=master)](https://travis-ci.org/dadi/queue-wrapper)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 ## Overview
 
