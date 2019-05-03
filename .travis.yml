@@ -6,12 +6,11 @@ notifications:
   slack: dadi:pnhiL60xOrm7GOglHUmb7xHK
   email: false
 node_js:
-  - '7'
-  - '6'
+  - '8'
+  - '10'
+  - 'lts/*'
 before_script:
   - npm prune
-after_success:
-  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
